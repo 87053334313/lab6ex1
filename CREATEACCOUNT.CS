@@ -20,12 +20,13 @@ class CreateAccount
 
         //Console.Write("Enter the account number   : ");
         //long number = long.Parse(Console.ReadLine()); 
-        long number = BankAccount.NextNumber();
+        //long number = BankAccount.NextNumber();
+
 
         //Console.Write("Enter the account balance! : ");
         decimal balance = decimal.Parse(Console.ReadLine());
 
-        created.Populate(number, balance);
+        created.Populate( balance);
         //created.accNo = number;
         //created.accBal = balance;
         //created.accType = AccountType.Checking;
