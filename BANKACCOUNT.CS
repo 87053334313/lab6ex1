@@ -5,13 +5,13 @@ class BankAccount
     private decimal accBal;
     private AccountType accType;
     private static long nextAccNo = 123;
-    public void Populate( decimal balance)
+    public void Populate(decimal balance)
     {
-        accNo =NextNumber();
+        accNo = NextNumber();
         accBal = balance;
         accType = AccountType.Checking;
     }
-    
+
     public long Number()
     {
         return accNo;
@@ -26,7 +26,20 @@ class BankAccount
     }
     private static long NextNumber()
     {
-      return nextAccNo++;
+        return nextAccNo++;
     }
-    
+    public decimal Deposit(decimal amount)
+    {
+        accBal = accBal + amount;
+        return accBal;
+    }
+    public bool Withdraw(decimal amount)
+    {
+        bool sufficientFunds = accBal >= amount;
+        if (sufficientFunds) 
+        {
+            accBal = accBal - amount;
+        }
+        return sufficientFunds;
+    }
 }

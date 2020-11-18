@@ -3,16 +3,41 @@ using System;
 
 class CreateAccount
 {
+    public static void TestWithdraw(BankAccount acc)
+    {
+        Console.WriteLine("Enter amount to withdraw: ");
+        decimal amount = decimal.Parse(Console.ReadLine());
+        if (!acc.Withdraw(amount))
+        {
+            Console.WriteLine("Insufficient funds.");
+        }
+        
+    }
     static void Main() 
     {
+        Console.WriteLine("money For berts");
         BankAccount berts = NewBankAccount();
         Write(berts);
-        
+        TestDeposit(berts);
+        Write(berts);
+        TestWithdraw(berts);
+        Write(berts);
+
+        Console.WriteLine("money For freds");
         BankAccount freds = NewBankAccount();
+        Write(freds);
+        TestDeposit(freds);
+        Write(freds);
+        TestWithdraw(freds);
         Write(freds);
         Console.ReadKey();
     }
-    
+    public static void TestDeposit(BankAccount acc) 
+    {
+        Console.Write("Enter amount to deposit: ");
+        decimal amount = decimal.Parse(Console.ReadLine());
+        acc.Deposit(amount);
+    }
     
     static BankAccount NewBankAccount()
     {       
