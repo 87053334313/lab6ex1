@@ -10,16 +10,19 @@ class CreateAccount
         
         BankAccount freds = NewBankAccount();
         Write(freds);
+        Console.ReadKey();
     }
+    
     
     static BankAccount NewBankAccount()
     {       
         BankAccount created = new BankAccount();
-        
-        Console.Write("Enter the account number   : ");
-        long number = long.Parse(Console.ReadLine());        
 
-        Console.Write("Enter the account balance! : ");
+        //Console.Write("Enter the account number   : ");
+        //long number = long.Parse(Console.ReadLine()); 
+        long number = BankAccount.NextNumber();
+
+        //Console.Write("Enter the account balance! : ");
         decimal balance = decimal.Parse(Console.ReadLine());
 
         created.Populate(number, balance);
